@@ -55,6 +55,7 @@ class FilamentImpersonateServiceProvider extends PackageServiceProvider
 
     protected function clearAuthHashes(): void
     {
+        return;
         session()->forget(array_unique([
             'password_hash_' . session('impersonate.guard'),
             'password_hash_' . Filament::getCurrentPanel()->getAuthGuard(),
