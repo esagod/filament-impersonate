@@ -61,10 +61,10 @@ trait Impersonates
     {
         $current = Filament::auth()->user();
 
-        return $current->isNot($target)
-            && !app(ImpersonateManager::class)->isImpersonating()
-            && (!method_exists($current, 'canImpersonate') || $current->canImpersonate())
-            && (!method_exists($target, 'canBeImpersonated') || $target->canBeImpersonated());
+	    return $current->isNot($target)
+		    && !($this->guard == Filament::getCurrentPanel()->getAuthGuard() && app(ImpersonateManager::class)->isImpersonating())
+		    && (!method_exists($current, 'canImpersonate') || $current->canImpersonate())
+		    && (!method_exists($target, 'canBeImpersonated') || $target->canBeImpersonated());
     }
 
     public function impersonate($record): bool|Redirector|RedirectResponse
