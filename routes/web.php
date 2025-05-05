@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Lab404\Impersonate\Services\ImpersonateManager;
+use Esagod\Impersonate\Services\ImpersonateManager;
 
 Route::get('filament-impersonate/leave', function() {
     if(!app(ImpersonateManager::class)->isImpersonating()) {

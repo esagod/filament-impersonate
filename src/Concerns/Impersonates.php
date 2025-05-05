@@ -5,7 +5,7 @@ namespace Esagod\FilamentImpersonate\Concerns;
 use Closure;
 use Filament\Facades\Filament;
 use Illuminate\Http\RedirectResponse;
-use Lab404\Impersonate\Services\ImpersonateManager;
+use Esagod\Impersonate\Services\ImpersonateManager;
 use Livewire\Features\SupportRedirects\Redirector;
 
 trait Impersonates
