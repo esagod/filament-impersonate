@@ -1,6 +1,6 @@
 # Filament Impersonate
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/stechstudio/filament-impersonate.svg?style=flat-square)](https://packagist.org/packages/stechstudio/filament-impersonate)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/esagod/filament-impersonate.svg?style=flat-square)](https://packagist.org/packages/esagod/filament-impersonate)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 This is a plugin for [Filament](https://filamentadmin.com/) that makes it easy to impersonate your users. 
@@ -14,7 +14,7 @@ This package uses [https://github.com/404labfr/laravel-impersonate](https://gith
 You know the drill:
 
 ```bash
-composer require stechstudio/filament-impersonate
+composer require esagod/filament-impersonate
 ```
 
 ## Quickstart
@@ -29,7 +29,7 @@ Go down to the `table` method. After defining the table columns, you want to add
 namespace App\Filament\Resources;
 
 use Filament\Resources\Resource;
-use STS\FilamentImpersonate\Tables\Actions\Impersonate;
+use Esagod\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource {
     public static function table(Table $table)
@@ -64,7 +64,7 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use Filament\Resources\Pages\EditRecord;
-use STS\FilamentImpersonate\Pages\Actions\Impersonate;
+use Esagod\FilamentImpersonate\Pages\Actions\Impersonate;
 
 class EditUser extends EditRecord
 {

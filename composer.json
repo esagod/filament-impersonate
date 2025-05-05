@@ -1,22 +1,22 @@
 {
-    "name": "stechstudio/filament-impersonate",
+    "name": "esagod/filament-impersonate",
     "description": "A Filament package to impersonate your users.",
     "type": "library",
     "minimum-stability": "dev",
     "license": "MIT",
     "require": {
-        "lab404/laravel-impersonate": "^1.7",
+        "esagod/laravel-impersonate": "^12.0.0",
         "filament/filament": "^3.0"
     },
     "autoload": {
         "psr-4": {
-            "STS\\FilamentImpersonate\\": "src/"
+            "Esagod\\FilamentImpersonate\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "STS\\FilamentImpersonate\\FilamentImpersonateServiceProvider"
+                "Esagod\\FilamentImpersonate\\FilamentImpersonateServiceProvider"
             ]
         }
     }

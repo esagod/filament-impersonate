@@ -1,6 +1,6 @@
 <?php
 
-namespace STS\FilamentImpersonate;
+namespace Esagod\FilamentImpersonate;
 
 use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Blade;
@@ -10,7 +10,7 @@ use Lab404\Impersonate\Events\TakeImpersonation;
 use Spatie\LaravelPackageTools\Package;
 use Filament\Support\Facades\FilamentView;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use STS\FilamentImpersonate\Tables\Actions\Impersonate;
+use Esagod\FilamentImpersonate\Tables\Actions\Impersonate;
 use BladeUI\Icons\Factory;
 
 class FilamentImpersonateServiceProvider extends PackageServiceProvider
@@ -46,10 +46,10 @@ class FilamentImpersonateServiceProvider extends PackageServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'impersonate');
 
         // Alias our table action for backwards compatibility.
-        // STS\FilamentImpersonate\Impersonate is where that class used to exist, and I don't
+        // Esagod\FilamentImpersonate\Impersonate is where that class used to exist, and I don't
         // want a breaking release yet.
-        if (!class_exists(\STS\FilamentImpersonate\Impersonate::class)) {
-            class_alias(Impersonate::class, \STS\FilamentImpersonate\Impersonate::class);
+        if (!class_exists(\Esagod\FilamentImpersonate\Impersonate::class)) {
+            class_alias(Impersonate::class, \Esagod\FilamentImpersonate\Impersonate::class);
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace STS\FilamentImpersonate\Concerns;
+namespace Esagod\FilamentImpersonate\Concerns;
 
 use Closure;
 use Filament\Facades\Filament;

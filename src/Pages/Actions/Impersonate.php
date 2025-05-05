@@ -1,9 +1,9 @@
 <?php
 
-namespace STS\FilamentImpersonate\Pages\Actions;
+namespace Esagod\FilamentImpersonate\Pages\Actions;
 
 use Filament\Pages\Actions\Action;
-use STS\FilamentImpersonate\Concerns\Impersonates;
+use Esagod\FilamentImpersonate\Concerns\Impersonates;
 
 class Impersonate extends Action
 {
