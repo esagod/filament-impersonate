@@ -21,7 +21,9 @@ class Impersonate extends Action
 			->action(function($record) {
 				if ($record->impersonate) {
 					if(is_a($record->impersonate, 'Illuminate\Database\Eloquent\Collection')) {
-						return $this->impersonate($record->impersonate[0]);
+						if ($record->impersonate->count()) {
+							return $this->impersonate($record->impersonate[0]);
+						}
 					} else {
 						return $this->impersonate($record->impersonate);
 					}
@@ -31,8 +33,11 @@ class Impersonate extends Action
 			})
 			->hidden(function($record) {
 				if ($record->impersonate) {
-					if(is_a($record->impersonate, 'Illuminate\Database\Eloquent\Collection')) {
-						return !$this->canBeImpersonated($record->impersonate[0]);
+					if (is_a($record->impersonate, 'Illuminate\Database\Eloquent\Collection')) {
+						if ($record->impersonate->count()) {
+							return !$this->canBeImpersonated($record->impersonate[0]);
+						}
+						return true;
 					} else {
 						return !$this->canBeImpersonated($record->impersonate);
 					}
