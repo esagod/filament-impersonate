@@ -6,6 +6,7 @@ use Closure;
 use Filament\Facades\Filament;
 use Illuminate\Http\RedirectResponse;
 use Esagod\Impersonate\Services\ImpersonateManager;
+use Livewire\Component;
 use Livewire\Features\SupportRedirects\Redirector;
 
 trait Impersonates
@@ -80,7 +81,7 @@ trait Impersonates
 		    && (!method_exists($target, 'canBeImpersonated') || $target->canBeImpersonated());
     }
 
-    public function impersonate($record): bool|Redirector|RedirectResponse
+    public function impersonate($record, Component $livewire): bool|Redirector|RedirectResponse
     {
         if (!$this->canBeImpersonated($record)) {
             return false;
