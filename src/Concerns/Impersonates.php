@@ -12,6 +12,7 @@ trait Impersonates
 {
     protected Closure|string|null $guard = null;
 
+    protected bool $openNewWindow = false;
     protected Closure|string|null $redirectTo = null;
 
     protected Closure|string|null $backTo = null;
@@ -27,6 +28,13 @@ trait Impersonates
 
         return $this;
     }
+
+	public function openNewWindow(bool $openNewWindow): self
+	{
+		$this->openNewWindow = $openNewWindow;
+
+		return $this;
+	}
 
     public function redirectTo(Closure|string $redirectTo): self
     {
@@ -46,6 +54,11 @@ trait Impersonates
     {
         return $this->evaluate($this->guard) ?? Filament::getCurrentPanel()->getAuthGuard();
     }
+
+	public function getOpenNewWindow(): string
+	{
+		return $this->evaluate($this->openNewWindow) ?? config('filament-impersonate.open_new_window');
+	}
 
     public function getRedirectTo(): string
     {
@@ -84,6 +97,11 @@ trait Impersonates
             $this->getGuard()
         );
 
-        return redirect($this->getRedirectTo());
+		if ($this->getOpenNewWindow()) {
+		    $livewire->js('window.open(\'' .$this->getRedirectTo() . '\', \'_blank\');');
+	        return true;
+	    }
+
+	    return redirect($this->getRedirectTo());
     }
 }

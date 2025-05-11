@@ -5,6 +5,7 @@ use Closure;
 use Esagod\FilamentImpersonate\Concerns\Impersonates;
 use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Component;
 
 class Impersonate extends Action
 {
@@ -18,17 +19,17 @@ class Impersonate extends Action
 			->label(__('filament-impersonate::action.label'))
 			->iconButton()
 			->icon('impersonate-icon')
-			->action(function($record) {
+			->action(function($record, Component $livewire) {
 				if ($record->impersonate) {
 					if(is_a($record->impersonate, 'Illuminate\Database\Eloquent\Collection')) {
 						if ($record->impersonate->count()) {
-							return $this->impersonate($record->impersonate[0]);
+							return $this->impersonate($record->impersonate[0], $livewire);
 						}
 					} else {
-						return $this->impersonate($record->impersonate);
+						return $this->impersonate($record->impersonate, $livewire);
 					}
 				} else {
-					return $this->impersonate($record);
+					return $this->impersonate($record, $livewire);
 				}
 			})
 			->hidden(function($record) {
